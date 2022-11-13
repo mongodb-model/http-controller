@@ -14,7 +14,7 @@ module.exports = (options = {}) => `
  */
 
 
-class ${options.name} extends require("controller") {
+class ${options.name} extends require("@mongodb-model/controller") {
 
   constructor(...arrayOfObjects) {
 
