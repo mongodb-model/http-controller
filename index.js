@@ -12,9 +12,12 @@
  * @classdesc HTTPController class
  */
 
+
+
 const {createWriteStream, promises, existsSync} = require('fs');
 const {join} = require('path');
-const {Readable} = require('stream')
+const {Readable} = require('stream');
+
 class HTTPController extends require("./base") {
 
   constructor(...arrayOfObjects) {
@@ -50,7 +53,6 @@ class HTTPController extends require("./base") {
     return createWriteStream(this.ctrlpathname(command), options);
   }
   readable(data, options = {encoding: 'utf-8'}){
-  
     return Readable.from(data, options)
   }
   makeController(command, data = {}){
@@ -65,7 +67,6 @@ class HTTPController extends require("./base") {
     if(this.direxists(command)){
         if(this.ctrlexists(command)){
             return console.log(command.split('/').pop(), 'Controller Already Exits')
-            
         }else{
             try{
               await promises.mkdir(this.ctrldirpath(command), {recursive: true})
@@ -73,7 +74,7 @@ class HTTPController extends require("./base") {
                 console.log('error', error)
             }
         }
-        
+      
      }else{
         try{
            await promises.mkdir(this.ctrldirpath(command), {recursive: true})

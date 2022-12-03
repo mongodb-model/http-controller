@@ -16,6 +16,7 @@
 
 
 const Controller = require('../src');
+
 class CLI extends require("../base") {
 
   constructor(...arrayOfObjects) {
