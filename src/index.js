@@ -17,7 +17,7 @@ const {join} = require('path');
 const {Readable} = require('stream')
 
 const Couleur = require("@mongodb-model/couleurs");
-const {BIRed,BIGreen} = new Couleur
+const {Red,Green} = new Couleur
 class HTTPController extends require("../base") {
 
   constructor(...arrayOfObjects) {
@@ -67,7 +67,7 @@ class HTTPController extends require("../base") {
   async makedir(command){
     if(this.direxists(command)){
         if(this.ctrlexists(command)){
-          return console.log(BIRed(`${command.split('/').pop()} Controller already exits`));
+          return console.log(Red(`${command.split('/').pop()} Controller already exits`));
             
         }else{
             try{
@@ -92,18 +92,18 @@ class HTTPController extends require("../base") {
 
      if(this.direxists(command)){
         if(this.ctrlexists(command)){
-          return console.log(BIRed(`${command.split('/').pop()} Controller already exits`));
+          return console.log(Red(`${command.split('/').pop()} Controller already exits`));
         }else{
             await this.makedir(command);
             this.makeController(command, data);
             this.emit('makeController', command)
-            return console.log(BIGreen(`${command.split('/').pop()} Controller has been created`));
+            return console.log(Green(`${command.split('/').pop()} Controller has been created`));
         }
      }else{
         await this.makedir(command);
         this.makeController(command, data);
         this.emit('makeController', command)
-        return console.log(BIGreen(`${command.split('/').pop()} Controller has been created`));
+        return console.log(Green(`${command.split('/').pop()} Controller has been created`));
         
      }
 

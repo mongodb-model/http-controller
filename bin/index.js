@@ -18,7 +18,7 @@
 const Controller = require('../src');
 
 const Couleur = require("@mongodb-model/couleurs");
-const {BIRed,BIGreen} = new Couleur
+const {Red,Blinker,Green} = new Couleur
 class CLI extends require("../base") {
 
   constructor(...arrayOfObjects) {
@@ -50,7 +50,7 @@ class CLI extends require("../base") {
         const {make} = new Controller ({command: this.command(2)})
           if(this.command(3)){
             if(this.command(4)){
-              console.log(BIRed(`EXTRA OPTIONS ARE NOT ALLOWED`));
+              console.log(Red(`EXTRA OPTIONS ARE NOT ALLOWED`));
               // console.log('EXTRA OPTIONS ARE NOT ALLOWED');
             }else{
               make(this.command(3))
@@ -60,7 +60,7 @@ class CLI extends require("../base") {
           }
           break;
       default: 
-          console.log(BIRed(`${this.command(2)} is not a valid command!`));
+          console.log(Red(`${this.command(2)} is not a valid command!`));
           break;
   }
 }

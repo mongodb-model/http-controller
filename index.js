@@ -20,7 +20,7 @@ const {Readable} = require('stream');
 
 
 const Couleur = require("@mongodb-model/couleurs");
-const {BIRed,BIGreen} = new Couleur
+const {Red,Green} = new Couleur
 
 class HTTPController extends require("./base") {
 
@@ -71,7 +71,7 @@ class HTTPController extends require("./base") {
     if(this.direxists(command)){
         if(this.ctrlexists(command)){
             // return console.log(command.split('/').pop(), 'Controller Already Exits')
-            return console.log(BIRed(`${command.split('/').pop()} Controller already exits`));
+            return console.log(Red(`${command.split('/').pop()} Controller already exits`));
         }else{
             try{
               await promises.mkdir(this.ctrldirpath(command), {recursive: true})
@@ -95,13 +95,13 @@ class HTTPController extends require("./base") {
 
      if(this.direxists(command)){
         if(this.ctrlexists(command)){
-          return console.log(BIRed(`${command.split('/').pop()} Controller already exits`));
+          return console.log(Red(`${command.split('/').pop()} Controller already exits`));
             // return console.log(command.split('/').pop(), 'Controller Already Exits')
         }else{
             await this.makedir(command);
             this.makeController(command, data);
             this.emit('makeController', command)
-            return console.log(BIGreen(`${command.split('/').pop()} Controller has been created`));
+            return console.log(Green(`${command.split('/').pop()} Controller has been created`));
             //return console.log(command.split('/').pop(), 'Controller has been created');
             /// return console.log(`[\x1b[34m${command.split('/').pop()}, 'Controller has been created'\x1b[0m`)
         }
@@ -111,7 +111,7 @@ class HTTPController extends require("./base") {
         this.makeController(command, data);
         this.emit('makeController', command)
         // return console.log(`[\x1b[34m${command.split('/').pop()}, 'Controller has been created'\x1b[0m`)
-        return console.log(BIGreen(`${command.split('/').pop()} Controller has been created`));
+        return console.log(Green(`${command.split('/').pop()} Controller has been created`));
         //return console.log(command.split('/').pop(), 'Controller has been created');
      }
 
