@@ -1,20 +1,20 @@
-
+module.exports = (options = {}) => `
 "use strict";
 
 /**
  * @author Ericson S. Weah  <ericson.weah@gmail.com> <https://github.com/eweah>  <+1.385.204.5167>
  *
- * @module ChatController
+ * @module ${options.name}
  * @kind class
  *
  * @extends Controller
  * @requires Controller
  *
- * @classdesc ChatController class
+ * @classdesc ${options.name} class
  */
 
 
-class ChatController extends require("@mongodb-model/controller") {
+class ${options.name} extends require("@mongodb-model/controller") {
 
   constructor(...arrayOfObjects) {
 
@@ -27,9 +27,9 @@ class ChatController extends require("@mongodb-model/controller") {
     });
 
     // auto bind methods
-    this.autobind(ChatController);
+    this.autobind(${options.name});
     // auto invoke methods
-    this.autoinvoker(ChatController);
+    this.autoinvoker(${options.name});
     // add other classes method if methods do not already exist. Argument order matters!
     // this.methodizer(..classList);
     //Set the maximum number of listeners to infinity
@@ -137,4 +137,5 @@ class ChatController extends require("@mongodb-model/controller") {
 
 }
 
-module.exports = ChatController;
+module.exports = ${options.name};
+`
