@@ -45,6 +45,7 @@ class CLI extends require("../base") {
  }
 
  commands(){
+  if(!this.command(2) || !this.command(2).trim().length)  return   console.log(Green(`http-controller man page`));
   switch(this.command(2)){
       case "make":
         const {make} = new Controller ({command: this.command(2)})

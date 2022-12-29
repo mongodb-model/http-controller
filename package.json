@@ -33,8 +33,6 @@
   },
   "homepage": "https://github.com/mongodb-model/http-controller#readme",
   "dependencies": {
-    "@mongodb-model/controller": "^0.0.0",
-    "@mongodb-model/couleurs": "^0.0.0",
     "dotenv": "16.0.3",
     "vitest": "0.25.1"
   }
